@@ -17,4 +17,3 @@ RUN cp hello-1.0.war /var/lib/tomcat9/webapps
 CMD ["catalina.sh", "run"]" > Dockerfile
 docker build -t lesson_6 .
 docker run -d -p 46850:8080 lesson_6
-
