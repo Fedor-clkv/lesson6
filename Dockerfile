@@ -1,7 +1,7 @@
 FROM ubuntu:22.04
 LABEL version="1.2" maintainer="Fedor Chulkov"
 RUN apt-get -y update && apt-get -y upgrade
-RUN apt install default-jdk -y
+RUN apt-get -y install openjdk-18-jdk wget
 RUN apt install maven -y
 RUN apt install git -y
 RUN apt install wget -y
@@ -18,4 +18,5 @@ RUN mvn package
 WORKDIR /opt/boxfuse-sample-java-war-hello/target
 # RUN cp hello-1.0.war /var/lib/tomcat9/webapps
 EXPOSE 8080
+EXPOSE 80
 CMD ["/usr/local/tomcat/bin/catalina.sh", "run"]
