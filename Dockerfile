@@ -10,7 +10,8 @@ ENV PATH $CATALINA_HOME/bin:$PATH
 
 # Устанавливаем пакеты openjdk-18-jdk wget maven git
 RUN apt-get -y update && apt-get -y upgrade
-RUN apt-get -y install openjdk-18-jdk wget
+RUN apt install openjdk-18-jdk -y
+RUN apt install wget -y
 RUN apt install maven -y
 RUN apt install git -y
 # Установка tomcat 9
