@@ -10,7 +10,7 @@ RUN mkdir /usr/local/tomcat
 WORKDIR /tmp
 RUN wget https://archive.apache.org/dist/tomcat/tomcat-9/v9.0.71/bin/apache-tomcat-9.0.71.tar.gz
 RUN tar xvfz apache-tomcat-9.0.71.tar.gz
-RUN cp -Rv /tmp/apache-tomcat-9.0.71 /usr/local/tomcat
+RUN cp apache-tomcat-9.0.71/* /usr/local/tomcat
 WORKDIR /opt
 RUN git clone https://github.com/boxfuse/boxfuse-sample-java-war-hello.git
 WORKDIR /opt/boxfuse-sample-java-war-hello
