@@ -9,7 +9,8 @@ ENV JAVA_HOME /usr/lib/jvm/java-18-openjdk-amd64
 ENV PATH $CATALINA_HOME/bin:$PATH
 
 # Устанавливаем пакеты openjdk-18-jdk wget maven git
-RUN apt-get -y update && apt-get -y upgrade
+RUN apt update -y
+RUN atp upgrade -y
 RUN apt install openjdk-18-jdk -y
 RUN apt install wget -y
 RUN apt install maven -y
