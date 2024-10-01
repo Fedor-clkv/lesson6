@@ -4,6 +4,7 @@ RUN apt-get -y update && apt-get -y upgrade
 RUN apt install default-jdk -y
 RUN apt install maven -y
 RUN apt install git -y
+RUN apt install wget -y
 ENV PATH $CATALINA_HOME/bin:$PATH
 RUN mkdir /usr/local/tomcat
 WORKDIR /tmp
