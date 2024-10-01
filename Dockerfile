@@ -5,7 +5,7 @@ RUN apt install default-jdk -y
 RUN apt install maven -y
 RUN apt install git -y
 RUN apt install wget -y
-ENV PATH /usr/local/tomcat/bin/:$PATH
+ENV PATH="$PATH:/usr/local/tomcat/bin/"
 RUN mkdir /usr/local/tomcat
 WORKDIR /tmp
 RUN wget https://archive.apache.org/dist/tomcat/tomcat-9/v9.0.71/bin/apache-tomcat-9.0.71.tar.gz
