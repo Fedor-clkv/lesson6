@@ -4,16 +4,12 @@ RUN apt-get -y update && apt-get -y upgrade
 RUN apt install default-jdk -y
 RUN apt install maven -y
 RUN apt install git -y
-ENV TOMCAT_VERSION 9.0.71
-ENV CATALINA_HOME /usr/local/tomcat
 ENV PATH $CATALINA_HOME/bin:$PATH
-RUN mkdir $CATALINA_HOME
+RUN mkdir /usr/local/tomcat
 WORKDIR /tmp
-RUN wget https://archive.apache.org/dist/tomcat/tomcat-9/v9.0.71/bin/apache-tomcat-9.0.71.tar.gz -O /tmp/tomcat.tar.gz
-RUN tar xvfz tomcat.tar.gz
-RUN cp -Rv /tmp/apache-tomcat-${TOMCAT_VERSION}/* $CATALINA_HOME
-RUN rm -rf /tmp/apache-tomcat-${TOMCAT_VERSION}
-RUN rm -rf /tmp/tomcat.tar.gz
+RUN wget https://archive.apache.org/dist/tomcat/tomcat-9/v9.0.71/bin/apache-tomcat-9.0.71.tar.gz
+RUN tar xvfz apache-tomcat-9.0.71.tar.gz
+RUN cp -Rv /tmp/apache-tomcat-9.0.71/* /usr/local/tomcat
 WORKDIR /opt
 RUN git clone https://github.com/boxfuse/boxfuse-sample-java-war-hello.git
 WORKDIR /opt/boxfuse-sample-java-war-hello
