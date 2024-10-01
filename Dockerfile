@@ -4,6 +4,7 @@ RUN apt-get -y update && apt-get -y upgrade
 RUN apt install default-jdk -y
 RUN apt install maven -y
 RUN apt install git -y
+ENV TOMCAT_VERSION 9.0.71
 ENV CATALINA_HOME /usr/local/tomcat
 ENV PATH $CATALINA_HOME/bin:$PATH
 RUN mkdir $CATALINA_HOME
