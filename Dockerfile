@@ -14,7 +14,7 @@ RUN apt install git -y
 RUN apt install wget -y
 
 # Установка Tomcat
-# Создаем рабочую директорию и перехожим в нее
+# Создаем рабочую директорию и перехожим в /tmp
 RUN mkdir /usr/local/tomcat
 WORKDIR /tmp
 # Скачиваем архив и распаковываем его
