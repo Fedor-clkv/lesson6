@@ -18,10 +18,10 @@ RUN apt install wget -y
 RUN mkdir /usr/local/tomcat
 WORKDIR /tmp
 # Скачиваем архив и распаковываем его
-RUN wget https://archive.apache.org/dist/tomcat/tomcat-9/v9.0.71/bin/apache-tomcat-9.0.71.tar.gz
-RUN tar xvfz apache-tomcat-9.0.71.tar.gz
+RUN wget https://archive.apache.org/dist/tomcat/tomcat-10/v10.0.20/bin/apache-tomcat-10.0.20.tar.gz
+RUN tar xvfz apache-tomcat-10.0.20.tar.gz
 # Копируем распакованные файлы в рабочую директорию
-RUN cp -Rv /tmp/apache-tomcat-9.0.71/* /usr/local/tomcat/
+RUN cp -Rv /tmp/apache-tomcat-10.0.20/* /usr/local/tomcat/
 
 # Контейнер собирается, но зависает при запуске на строчке
 # "org.apache.catalina.startup.Catalina.start Server startup in"
