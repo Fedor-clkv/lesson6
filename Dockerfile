@@ -23,8 +23,7 @@ RUN tar xvfz apache-tomcat-10.0.20.tar.gz
 # Копируем распакованные файлы в рабочую директорию
 RUN cp -Rv /tmp/apache-tomcat-10.0.20/* /usr/local/tomcat/
 
-# Контейнер собирается, но зависает при запуске на строчке
-# "org.apache.catalina.startup.Catalina.start Server startup in"
+# Контейнер собирается, но зависает
 # Мне кажется, что это связано с catalina.sh, но не могу это решить
 
 # Далее сборка boxfuse
