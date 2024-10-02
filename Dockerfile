@@ -10,24 +10,27 @@ ENV PATH $CATALINA_HOME/bin:$PATH
 
 # Устанавливаем пакеты openjdk-18-jdk wget maven git
 RUN apt update -y
-RUN atp upgrade -y
-RUN apt install openjdk-18-jdk -y
-RUN apt install wget -y
+RUN apt upgrade -y
+RUN apt install openjdk-8-jdk -y
+RUN apt-get install -y wget
 RUN apt install maven -y
 RUN apt install git -y
 # Установка tomcat 9
+# Создаем рабочую папку 
 RUN mkdir /usr/local/tomcat
+# Переходим в каталог /tmp, скачиваем и распаковываем архив tomcat
 WORKDIR /tmp
 RUN wget https://archive.apache.org/dist/tomcat/tomcat-9/v9.0.71/bin/apache-tomcat-9.0.71.tar.gz
 RUN tar xvfz apache-tomcat-9.0.71.tar.gz
+# Копируем распакованные файлы в рабочую папку
 RUN cp -Rv apache-tomcat-9.0.71/* /usr/local/tomcat
 
 # Распаковка boxfuse
-WORKDIR /opt
-RUN git clone https://github.com/boxfuse/boxfuse-sample-java-war-hello.git
-WORKDIR /opt/boxfuse-sample-java-war-hello
-# RUN mvn package
-WORKDIR /opt/boxfuse-sample-java-war-hello/target
+#WORKDIR /opt
+#RUN git clone https://github.com/boxfuse/boxfuse-sample-java-war-hello.git
+#WORKDIR /opt/boxfuse-sample-java-war-hello
+#RUN mvn package
+#WORKDIR /opt/boxfuse-sample-java-war-hello/target
 # RUN cp hello-1.0.war /var/lib/tomcat9/webapps
 EXPOSE 8080
 CMD ["/usr/local/tomcat/bin/catalina.sh", "run"]
