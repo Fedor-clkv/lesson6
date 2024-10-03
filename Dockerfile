@@ -23,16 +23,13 @@ RUN tar xvfz apache-tomcat-10.0.20.tar.gz
 # Копируем распакованные файлы в рабочую директорию
 RUN cp -Rv /tmp/apache-tomcat-10.0.20/* /usr/local/tomcat/
 
-# Контейнер собирается, но зависает
-# Мне кажется, что это связано с catalina.sh, но не могу это решить
-
 # Далее сборка boxfuse
-#WORKDIR /opt
-#RUN git clone https://github.com/boxfuse/boxfuse-sample-java-war-hello.git
-#WORKDIR /opt/boxfuse-sample-java-war-hello
-#RUN mvn package
-#WORKDIR /opt/boxfuse-sample-java-war-hello/target
-# RUN cp -R hello-1.0.war /var/lib/tomcat9/webapps
+WORKDIR /opt
+RUN git clone https://github.com/boxfuse/boxfuse-sample-java-war-hello.git
+WORKDIR /opt/boxfuse-sample-java-war-hello
+RUN mvn package
+WORKDIR /opt/boxfuse-sample-java-war-hello/target
+RUN cp -R hello-1.0.war /var/lib/tomcat9/webapps
 
 EXPOSE 8080
 # Устанавливаем в качестве основного процесса catalina.sh
