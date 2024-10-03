@@ -8,7 +8,7 @@ ENV PATH $CATALINA_HOME/bin:$PATH
 # Установка openjdk maven git wget
 RUN apt update -y
 RUN apt upgrade -y
-RUN apt-get -y install openjdk-18-jdk
+RUN apt install default-jdk -y
 RUN apt install maven -y
 RUN apt install git -y
 RUN apt install wget -y
